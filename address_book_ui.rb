@@ -28,6 +28,20 @@ def add_contact
   puts "Enter contact name"
   input_contact = gets.chomp
   @contacts << Contact.new(input_contact)
+  loop do
+    puts "Press 'p' to enter phone number"
+    puts "Press 'e' to enter email address"
+    puts "Press 'a' to enter street address"
+    puts "Press 'm' to return to the main menu"
+    main_choice = gets.chomp
+    if main_choice == 'p'
+      add_phone
+    elsif main_choice == 'e'
+      add_email
+    elsif main_choice == 'a'
+      add_address
+    elsif main_choice == 'm'
+    break
 end
 
 def view_contacts
