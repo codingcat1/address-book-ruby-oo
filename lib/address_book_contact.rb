@@ -3,8 +3,8 @@ class Contact
   def initialize(name)
     @name = name
     @numbers = []
-    @email = []
-    @address = []
+    @emails = []
+    @addresses = []
 
   end
 
@@ -12,20 +12,24 @@ class Contact
     @numbers << new_number
   end
 
+  def add_email(new_email)
+    @emails << new_email
+  end
+
   def name
     @name
   end
 
-  def numbers
+  def number
     @numbers
   end
 
   def email
-    @email
+    @emails
   end
 
   def address
-    @address
+    @addresses
   end
 
 end
