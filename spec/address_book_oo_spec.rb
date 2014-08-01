@@ -7,9 +7,9 @@ require 'address_book_address'
 describe Contact do
   it 'initializes a new contact' do
     test_contact = Contact.new('Joe Doe')
-    test_contact.number.should eq [] #got it
-    test_contact.email.should eq []
-    test_contact.address.should eq []
+    test_contact.numbers.should eq []
+    test_contact.emails.should eq []
+    test_contact.addresses.should eq []
     test_contact.should be_an_instance_of Contact
   end
 
@@ -18,26 +18,32 @@ describe Contact do
     test_contact.name.should eq 'Joe Doe'
   end
 
-  it 'can add phone numbers to contact information' do
-    test_contact = Contact.new('Joe Doe')
-    test_number = Phone.new('503.555.1212')
-    test_contact.add_number(test_number)
-    test_contact.number.should eq [test_number]
+  describe '#add_number' do
+    it 'can add phone numbers to contact information' do
+      test_contact = Contact.new('Joe Doe')
+      test_number = Phone.new('503.555.1212')
+      test_contact.add_number(test_number)
+      test_contact.numbers.should eq [test_number]
+    end
   end
 
-  it 'can add emails to contact information' do
-    test_contact = Contact.new('Joe Doe')
-    test_email = Email.new('Jose@yahoo.com')
-    test_contact.add_email(test_email)
-    test_contact.email.should eq [test_email]
+  describe '#add_email' do
+    it 'can add emails to contact information' do
+      test_contact = Contact.new('Joe Doe')
+      test_email = Email.new('Jose@yahoo.com')
+      test_contact.add_email(test_email)
+      test_contact.emails.should eq [test_email]
+    end
   end
 
-  # it 'can add street addresses to contact information' do
-  #   test_contact = Contact.new('Joe Doe')
-  #   test_address = Address.new('')
-  #   test_contact.add_address(test_address)
-  #   test_contact.address.should eq [test_address]
-  # end
+  describe '#add_address' do
+    it 'can add street addresses to contact information' do
+      test_contact = Contact.new('Joe Doe')
+      test_address = Address.new('123 Main St., Portland, OR 97202')
+      test_contact.add_address(test_address)
+      test_contact.addresses.should eq [test_address]
+    end
+  end
 end
 
 

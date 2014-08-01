@@ -5,7 +5,6 @@ class Contact
     @numbers = []
     @emails = []
     @addresses = []
-
   end
 
   def add_number(new_number)
@@ -16,19 +15,23 @@ class Contact
     @emails << new_email
   end
 
+  def add_address(new_address)
+    @addresses << new_address
+  end
+
   def name
     @name
   end
 
-  def number
+  def numbers
     @numbers
   end
 
-  def email
+  def emails
     @emails
   end
 
-  def address
+  def addresses
     @addresses
   end
 
